@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="RxGalleryStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="gallery_toolbar_height">@dimen/gallery_default_toolbar_height</item>
+        <item name="gallery_toolbar_bg">@color/theme_black_primary</item>
+        <item name="gallery_toolbar_over_button_text_color">@color/red</item>
+        <item name="gallery_toolbar_over_button_text_size">20sp</item>
+        <item name="gallery_page_bg">#00ff00</item>
+        <item name="gallery_toolbar_divider_bg">@color/dark_gray</item>
+        <item name="gallery_toolbar_over_button_pressed_color">@color/dark_gray</item>
+        <item name="gallery_toolbar_over_button_normal_color">#000000</item>
+        <item name="gallery_toolbar_close_image">@android:drawable/ic_delete</item>
+        <item name="gallery_toolbar_close_color">#000000</item>
+        <item name="gallery_toolbar_text_size">12sp</item>
+        <item name="gallery_toolbar_text_color">#000000</item>
+        <item name="gallery_checkbox_button_tint_color">#000000</item>
+    </style>
+
+</resources>

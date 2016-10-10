@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme_Light中的属性都是rxgallery工程中所必须的，如果MediaActivity没有使用Theme_Light或其子类主题的话，那么重写的主题必须加上这些必须属性，并且要是继承Theme.AppCompat.xx.NoActionBar主题 -->
+    <style name="Theme_Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="gallery_ucrop_title_text">@string/gallery_ucrop_menu_crop</item>-->
+        <!--<item name="gallery_page_bg">@color/gallery_default_page_bg</item>-->
+        <item name="gallery_checkbox_text_color">@color/gallery_default_checkbox_text_color</item>
+        <item name="gallery_toolbar_bg">@color/gallery_default_color_toolbar_bg</item>
+        <item name="gallery_bottombar_bg">@color/gallery_default_color_bottombar_bg</item>
+        <item name="gallery_toolbar_height">@dimen/gallery_default_toolbar_height</item>
+        <item name="gallery_bottombar_height">@dimen/gallery_default_bottombar_height</item>
+        <item name="gallery_toolbar_divider_bg">@color/gallery_default_toolbar_divider_bg</item>
+        <item name="gallery_toolbar_text_size">@dimen/gallery_default_toolbar_text_size</item>
+        <item name="gallery_toolbar_text_color">@color/gallery_default_toolbar_text_color</item>
+        <item name="gallery_toolbar_over_button_text_color">@color/gallery_default_toolbar_over_button_text_color</item>
+        <item name="gallery_toolbar_over_button_text_size">@dimen/gallery_default_toolbar_over_button_text_size</item>
+    </style>
+
+    <style name="Theme_Light.Default">
+        <item name="android:windowBackground">@color/gallery_default_page_bg</item>
+        <item name="gallery_color_statusbar">@color/gallery_default_color_statusbar</item>
+        <item name="gallery_toolbar_bottom_margin">@dimen/gallery_default_toolbar_bottom_margin</item>
+        <item name="gallery_toolbar_divider_height">@dimen/gallery_default_toolbar_divider_height</item>
+        <item name="gallery_toolbar_over_button_bg">@null</item>
+        <item name="gallery_toolbar_over_button_normal_color">@color/gallery_default_toolbar_over_button_normal_color</item>
+        <item name="gallery_toolbar_over_button_pressed_color">@color/gallery_default_toolbar_over_button_pressed_color</item>
+        <item name="gallery_toolbar_close_image">@drawable/gallery_default_toolbar_close_image</item>
+        <item name="gallery_toolbar_close_color">@color/gallery_default_toolbar_widget_color</item>
+        <item name="gallery_toolbar_text_gravity">center</item>
+        <item name="gallery_checkbox_button_tint_color">@color/gallery_default_checkbox_button_tint_color</item>
+    </style>
+
+    <style name="Theme_Light.White">
+        <item name="gallery_toolbar_bg">@color/theme_white_primary</item>
+        <item name="gallery_toolbar_close_color">#2A2A2F</item>
+        <item name="gallery_toolbar_text_color">#2A2A2F</item>
+        <item name="gallery_page_bg">#FFFFFF</item>
+        <item name="gallery_default_image">@mipmap/ic_launcher</item>
+        <item name="gallery_imageview_bg">#FFFFFF</item>
+    </style>
+
+    <style name="Theme_Light.Blue">
+        <item name="colorPrimary">@color/theme_blue_primary</item>
+        <item name="colorPrimaryDark">@color/theme_blue_dark</item>
+        <item name="colorAccent">@color/theme_blue_accent</item>
+        <item name="colorButtonNormal">@color/theme_blue_accent</item>
+    </style>
+
+    <style name="Theme_Light.Orange">
+        <item name="colorPrimary">@color/theme_orange_primary</item>
+        <item name="colorPrimaryDark">@color/theme_orange_dark</item>
+        <item name="colorAccent">@color/theme_light_blue_accent</item>
+    </style>
+
+    <style name="Theme_Light.Cyan">
+        <item name="colorPrimary">@color/theme_cyan_primary</item>
+        <item name="colorPrimaryDark">@color/theme_cyan_dark</item>
+        <item name="colorAccent">@color/theme_cyan_accent</item>
+    </style>
+
+    <style name="Theme_Light.Green">
+        <item name="colorPrimary">@color/theme_green_primary</item>
+        <item name="colorPrimaryDark">@color/theme_green_dark</item>
+        <item name="colorAccent">@color/theme_green_accent</item>
+    </style>
+
+    <style name="Theme_Light.Teal">
+        <item name="colorPrimary">@color/theme_teal_primary</item>
+        <item name="colorPrimaryDark">@color/theme_teal_dark</item>
+        <item name="colorAccent">@color/theme_teal_accent</item>
+    </style>
+
+    <style name="Theme_Light.Red">
+        <item name="colorPrimary">@color/theme_red_primary</item>
+        <item name="colorPrimaryDark">@color/theme_red_dark</item>
+        <item name="colorAccent">@color/theme_red_accent</item>
+    </style>
+
+    <style name="Theme_Light.Pink">
+        <item name="colorPrimary">@color/theme_pink_primary</item>
+        <item name="colorPrimaryDark">@color/theme_pink_dark</item>
+        <item name="colorAccent">@color/theme_pink_accent</item>
+    </style>
+
+    <style name="Theme_Light.Purple">
+        <item name="colorPrimary">@color/theme_purple_primary</item>
+        <item name="colorPrimaryDark">@color/theme_purple_dark</item>
+        <item name="colorAccent">@color/theme_purple_accent</item>
+    </style>
+
+    <style name="Theme_Light.Grey">
+        <item name="colorPrimary">@color/theme_grey_primary</item>
+        <item name="colorPrimaryDark">@color/theme_grey_dark</item>
+        <item name="colorAccent">@color/theme_grey_accent</item>
+    </style>
+
+    <style name="Theme_Light.Black">
+        <item name="colorPrimary">@color/theme_black_primary</item>
+        <item name="colorPrimaryDark">@color/theme_black_dark</item>
+        <item name="colorAccent">@color/theme_black_accent</item>
+    </style>
+
+    <style name="Theme_Light.Brown">
+        <item name="colorPrimary">@color/theme_brown_primary</item>
+        <item name="colorPrimaryDark">@color/theme_brown_dark</item>
+        <item name="colorAccent">@color/theme_brown_dark</item>
+    </style>
+
+</resources>

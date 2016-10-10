@@ -1,0 +1,1 @@
+include ':app', ':rxgallery', ':universalimageloader', ':swipelayout', ':okhttp3', ':okio'

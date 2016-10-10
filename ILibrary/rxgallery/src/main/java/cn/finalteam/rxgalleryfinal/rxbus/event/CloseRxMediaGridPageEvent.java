@@ -1,0 +1,11 @@
+package cn.finalteam.rxgalleryfinal.rxbus.event;
+
+/**
+ * Desction:
+ * Author:pengjianbo
+ * Date:16/8/1 下午11:51
+ *
+ * @since 1.0.0
+ */
+public class CloseRxMediaGridPageEvent {
+}

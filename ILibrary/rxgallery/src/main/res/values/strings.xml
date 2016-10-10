@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RxGalleryFinal</string>
+    <string name="gallery_string_checked">选中</string>
+</resources>
