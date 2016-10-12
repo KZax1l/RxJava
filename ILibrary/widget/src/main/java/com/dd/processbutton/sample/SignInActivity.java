@@ -26,16 +26,17 @@ public class SignInActivity extends Activity implements ProgressGenerator.OnComp
 
         final ProgressGenerator progressGenerator = new ProgressGenerator(this);
         final ActionProcessButton btnSignIn = (ActionProcessButton) findViewById(R.id.btnSignIn);
-        Bundle extras = getIntent().getExtras();
-        if(extras != null && extras.getBoolean(EXTRAS_ENDLESS_MODE)) {
-            btnSignIn.setMode(ActionProcessButton.Mode.ENDLESS);
-        } else {
-            btnSignIn.setMode(ActionProcessButton.Mode.PROGRESS);
-        }
+//        Bundle extras = getIntent().getExtras();
+//        if(extras != null && extras.getBoolean(EXTRAS_ENDLESS_MODE)) {
+//            btnSignIn.setMode(ActionProcessButton.Mode.ENDLESS);
+//        } else {
+//            btnSignIn.setMode(ActionProcessButton.Mode.PROGRESS);
+//        }
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressGenerator.start(btnSignIn);
+//                progressGenerator.start(btnSignIn);
+                btnSignIn.setProgress(50);
                 btnSignIn.setEnabled(false);
                 editEmail.setEnabled(false);
                 editPassword.setEnabled(false);

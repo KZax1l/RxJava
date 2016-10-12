@@ -1,4 +1,14 @@
 <resources>
+    <declare-styleable name="ActionProcessButton">
+        <attr name="apb_mode">
+            <enum name="endless" value="0" />
+            <enum name="progress" value="1" />
+        </attr>
+        <attr name="apb_color1" format="color|reference" />
+        <attr name="apb_color2" format="color|reference" />
+        <attr name="apb_color3" format="color|reference" />
+        <attr name="apb_color4" format="color|reference" />
+    </declare-styleable>
     <declare-styleable name="ProcessButton">
         <attr name="pb_textProgress" format="string" />
         <attr name="pb_textComplete" format="string" />

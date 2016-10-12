@@ -1,7 +1,7 @@
 package com.dd.processbutton.iml;
 
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -13,6 +13,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
+import com.dd.processbutton.OsCompat;
 import com.dd.processbutton.ProcessButton;
 
 import org.zsago.widget.R;
@@ -53,33 +54,49 @@ public class ActionProcessButton extends ProcessButton {
     private int mColor4;
 
     public enum Mode {
-        PROGRESS, ENDLESS;
+        PROGRESS, ENDLESS
     }
 
     public ActionProcessButton(Context context) {
         super(context);
-        init(context);
+        init(context, null);
     }
 
     public ActionProcessButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init(context, attrs);
     }
 
     public ActionProcessButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
+        init(context, attrs);
     }
 
-    private void init(Context context) {
-        Resources res = context.getResources();
-
+    private void init(Context context, AttributeSet attributeSet) {
         mMode = Mode.ENDLESS;
 
-        mColor1 = res.getColor(R.color.process_button_holo_blue_bright);
-        mColor2 = res.getColor(R.color.process_button_holo_green_light);
-        mColor3 = res.getColor(R.color.process_button_holo_orange_light);
-        mColor4 = res.getColor(R.color.process_button_holo_red_light);
+        mColor1 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_blue_bright);
+        mColor2 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_green_light);
+        mColor3 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_orange_light);
+        mColor4 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_red_light);
+
+        initAttributes(context, attributeSet);
+    }
+
+    private void initAttributes(Context context, AttributeSet attributeSet) {
+        TypedArray attr = getTypedArray(context, attributeSet, R.styleable.ActionProcessButton);
+        if (attr == null) {
+            return;
+        }
+        try {
+            mMode = attr.getInt(R.styleable.ActionProcessButton_apb_mode, 0) == 0 ? Mode.ENDLESS : Mode.PROGRESS;
+            mColor1 = attr.getColor(R.styleable.ActionProcessButton_apb_color1, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_blue_bright));
+            mColor2 = attr.getColor(R.styleable.ActionProcessButton_apb_color2, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_green_light));
+            mColor3 = attr.getColor(R.styleable.ActionProcessButton_apb_color3, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_orange_light));
+            mColor4 = attr.getColor(R.styleable.ActionProcessButton_apb_color4, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_red_light));
+        } finally {
+            attr.recycle();
+        }
     }
 
     public void setMode(Mode mode) {
@@ -95,8 +112,9 @@ public class ActionProcessButton extends ProcessButton {
 
     @Override
     public void drawProgress(Canvas canvas) {
-        if(getBackground() != getNormalDrawable()) {
-            setBackgroundDrawable(getNormalDrawable());
+        if (getBackground() != getNormalDrawable()) {
+//            setBackgroundDrawable(getNormalDrawable());
+            OsCompat.setBackgroundDrawableCompat(this, getNormalDrawable());
         }
 
         switch (mMode) {
@@ -329,10 +347,10 @@ public class ActionProcessButton extends ProcessButton {
          * Draws a circle centered in the view.
          *
          * @param canvas the canvas to draw on
-         * @param cx the center x coordinate
-         * @param cy the center y coordinate
-         * @param color the color to draw
-         * @param pct the percentage of the view that the circle should cover
+         * @param cx     the center x coordinate
+         * @param cy     the center y coordinate
+         * @param color  the color to draw
+         * @param pct    the percentage of the view that the circle should cover
          */
         private void drawCircle(Canvas canvas, float cx, float cy, int color, float pct) {
             mPaint.setColor(color);

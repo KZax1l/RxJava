@@ -40,7 +40,7 @@ public class RecyclerViewExample extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recyclerview);
+        setContentView(R.layout.sample_recyclerview);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             ActionBar actionBar = getActionBar();
@@ -53,7 +53,7 @@ public class RecyclerViewExample extends Activity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Item Decorator:
-        recyclerView.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.sample_divider)));
         recyclerView.setItemAnimator(new FadeInLeftAnimator());
 
         // Adapter:
@@ -88,7 +88,7 @@ public class RecyclerViewExample extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my, menu);
+        getMenuInflater().inflate(R.menu.sample_my, menu);
         return true;
     }
 

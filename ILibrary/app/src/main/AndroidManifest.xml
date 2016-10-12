@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.nostra13.universalimageloader.sample.UILApplication"
+        android:name="com.rey.material.sample.demo.DemoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -50,13 +50,7 @@
         <!-- RxGalleryFinal -->
         <activity
             android:name="cn.finalteam.rxgalleryfinal.sample.MainActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name="cn.finalteam.rxgalleryfinal.ui.activity.MediaActivity"
             android:exported="true"
@@ -75,6 +69,43 @@
         <activity android:name="com.daimajia.swipedemo.GridViewExample" />
         <activity android:name="com.daimajia.swipedemo.RecyclerViewExample" />
         <activity android:name="com.daimajia.swipedemo.NestedExample" />
+
+        <!-- Widget -->
+        <activity
+            android:name="com.dd.processbutton.sample.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dd.processbutton.sample.MessageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name="com.dd.processbutton.sample.SignInActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name="com.dd.processbutton.sample.UploadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name="com.dd.processbutton.sample.StateSampleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="info.hoang8f.widget.demo.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <!-- Material -->
+        <activity
+            android:name="com.rey.material.sample.demo.MainActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>

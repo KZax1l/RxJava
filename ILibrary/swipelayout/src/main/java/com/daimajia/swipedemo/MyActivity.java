@@ -21,7 +21,7 @@ public class MyActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.sample_main);
 
 //        SwipeLayout swipeLayout = (SwipeLayout)findViewById(R.id.godfather);
 //        swipeLayout.setDragEdge(SwipeLayout.DragEdge.Bottom); // Set in XML
@@ -163,7 +163,7 @@ public class MyActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my, menu);
+        getMenuInflater().inflate(R.menu.sample_my, menu);
         return true;
     }
 

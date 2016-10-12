@@ -16,7 +16,7 @@ public class GridViewExample extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gridview);
+        setContentView(R.layout.sample_gridview);
         final GridView gridView = (GridView) findViewById(R.id.gridview);
         final GridViewAdapter adapter = new GridViewAdapter(this);
         adapter.setMode(Attributes.Mode.Multiple);

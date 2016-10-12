@@ -7,7 +7,7 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/trash"
-            android:src="@drawable/trash"
+            android:src="@drawable/sample_trash"
             android:layout_width="match_parent"
             android:background="#FF3B30"
             android:paddingLeft="25dp"

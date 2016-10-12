@@ -24,7 +24,7 @@ public class GridViewAdapter extends BaseSwipeAdapter {
 
     @Override
     public View generateView(int position, ViewGroup parent) {
-        return LayoutInflater.from(mContext).inflate(R.layout.grid_item, null);
+        return LayoutInflater.from(mContext).inflate(R.layout.sample_grid_item, null);
     }
 
     @Override

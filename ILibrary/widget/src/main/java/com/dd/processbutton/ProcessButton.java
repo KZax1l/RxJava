@@ -93,7 +93,7 @@ public abstract class ProcessButton extends FlatButton {
             onNormalState();
         } else if (mProgress == mMaxProgress) {
             onCompleteState();
-        } else if (mProgress < mMinProgress){
+        } else if (mProgress < mMinProgress || mProgress > mMaxProgress) {
             onErrorState();
         } else {
             onProgress();
@@ -103,28 +103,28 @@ public abstract class ProcessButton extends FlatButton {
     }
 
     protected void onErrorState() {
-        if(getErrorText() != null) {
+        if (getErrorText() != null) {
             setText(getErrorText());
         }
         setBackgroundCompat(getErrorDrawable());
     }
 
     protected void onProgress() {
-        if(getLoadingText() != null) {
+        if (getLoadingText() != null) {
             setText(getLoadingText());
         }
         setBackgroundCompat(getNormalDrawable());
     }
 
     protected void onCompleteState() {
-        if(getCompleteText() != null) {
+        if (getCompleteText() != null) {
             setText(getCompleteText());
         }
         setBackgroundCompat(getCompleteDrawable());
     }
 
     protected void onNormalState() {
-        if(getNormalText() != null) {
+        if (getNormalText() != null) {
             setText(getNormalText());
         }
         setBackgroundCompat(getNormalDrawable());
@@ -133,7 +133,7 @@ public abstract class ProcessButton extends FlatButton {
     @Override
     protected void onDraw(Canvas canvas) {
         // progress
-        if(mProgress > mMinProgress && mProgress < mMaxProgress) {
+        if (mProgress > mMinProgress && mProgress < mMaxProgress) {
             drawProgress(canvas);
         }
 

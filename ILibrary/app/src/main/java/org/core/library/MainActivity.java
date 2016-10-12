@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.sample_fbutton_activity_main);
         TextView tvMsg = (TextView) findViewById(R.id.tv_message);
         List<BucketBean> imgList = MediaUtils.getAllBucketWithImageOrVideo(this, true);
         List<BucketBean> videoList = MediaUtils.getAllBucketWithImageOrVideo(this, false);

@@ -1,1 +1,1 @@
-include ':app', ':rxgallery', ':universalimageloader', ':swipelayout', ':okhttp3', ':okio', ':glide', ':widget'
+include ':app', ':rxgallery', ':universalimageloader', ':swipelayout', ':okhttp3', ':okio', ':glide', ':widget', ':material'
