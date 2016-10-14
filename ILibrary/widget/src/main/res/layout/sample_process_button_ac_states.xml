@@ -9,11 +9,11 @@
         android:id="@+id/btnAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Upload"
+        android:text="@string/sample_process_button_Upload"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        custom:pb_textComplete="@string/Done"
-        custom:pb_textProgress="@string/Uploading"
+        custom:pb_textComplete="@string/sample_process_button_Done"
+        custom:pb_textProgress="@string/sample_process_button_Uploading"
         custom:pb_textError="Error"/>
 
     <com.dd.processbutton.iml.SubmitProcessButton
@@ -21,11 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="@string/Upload"
+        android:text="@string/sample_process_button_Upload"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        custom:pb_textComplete="@string/Done"
-        custom:pb_textProgress="@string/Uploading"
+        custom:pb_textComplete="@string/sample_process_button_Done"
+        custom:pb_textProgress="@string/sample_process_button_Uploading"
         custom:pb_textError="Error"/>
 
     <com.dd.processbutton.iml.GenerateProcessButton
@@ -33,11 +33,11 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="@string/Upload"
+        android:text="@string/sample_process_button_Upload"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        custom:pb_textComplete="@string/Done"
-        custom:pb_textProgress="@string/Uploading"
+        custom:pb_textComplete="@string/sample_process_button_Done"
+        custom:pb_textProgress="@string/sample_process_button_Uploading"
         custom:pb_textError="Error"/>
 
     <Button

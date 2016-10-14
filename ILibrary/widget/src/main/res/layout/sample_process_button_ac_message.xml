@@ -12,17 +12,17 @@
         android:layout_marginRight="16dp"
         android:layout_weight="1.0"
         android:inputType="textShortMessage"
-        android:text="@string/Question" />
+        android:text="@string/sample_process_button_Question" />
 
     <com.dd.processbutton.iml.SubmitProcessButton
         android:id="@+id/btnSend"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:minWidth="100dp"
-        android:text="@string/Send"
+        android:text="@string/sample_process_button_Send"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        custom:pb_textComplete="@string/Done"
-        custom:pb_textProgress="@string/Loading" />
+        custom:pb_textComplete="@string/sample_process_button_Done"
+        custom:pb_textProgress="@string/sample_process_button_Loading" />
 
 </LinearLayout>

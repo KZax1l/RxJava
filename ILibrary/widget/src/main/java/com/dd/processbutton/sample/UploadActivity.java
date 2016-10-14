@@ -32,6 +32,6 @@ public class UploadActivity extends Activity implements ProgressGenerator.OnComp
 
     @Override
     public void onComplete() {
-        Toast.makeText(this, R.string.Loading_Complete, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.sample_process_button_Loading_Complete, Toast.LENGTH_LONG).show();
     }
 }

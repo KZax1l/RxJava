@@ -3,4 +3,21 @@
 
     <string name="sample_fbutton_action_github">Github</string>
     <string name="sample_fbutton_action_share">Share</string>
+
+    <string name="sample_cpb_Upload">Upload</string>
+    <string name="sample_cpb_Error">Error</string>
+    <string name="sample_cpb_Complete">Complete</string>
+    <string name="sample_cpb_IndeterminateProgressSample">Indeterminate Progress Sample</string>
+    <string name="sample_cpb_IntegerProgressSample">Integer Progress Sample</string>
+    <string name="sample_cpb_StateChangeSample">State Change Sample</string>
+    <string name="sample_cpb_ProgressPaddingSample">Progress Padding Sample</string>
+    <string name="sample_cpb_CustomSelectorSample">Custom Selector Sample</string>
+
+    <array name="sample_cpb_list">
+        <item>@string/sample_cpb_IndeterminateProgressSample</item>
+        <item>@string/sample_cpb_IntegerProgressSample</item>
+        <item>@string/sample_cpb_StateChangeSample</item>
+        <item>@string/sample_cpb_ProgressPaddingSample</item>
+        <item>@string/sample_cpb_CustomSelectorSample</item>
+    </array>
 </resources>

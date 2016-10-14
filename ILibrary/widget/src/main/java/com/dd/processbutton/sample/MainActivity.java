@@ -15,7 +15,7 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String[] items = getResources().getStringArray(R.array.sample_list);
+        String[] items = getResources().getStringArray(R.array.sample_process_button_list);
 
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);

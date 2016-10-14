@@ -17,17 +17,18 @@ import android.widget.Button;
 import org.zsago.widget.R;
 
 import static com.dd.processbutton.OsCompat.getResourceColorCompat;
+import static com.dd.processbutton.OsCompat.getResourceDrawableCompat;
 import static com.dd.processbutton.OsCompat.setBackgroundDrawableCompat;
 
 /**
  * Created by hoang8f on 5/5/14.
  */
 public class FButton extends Button implements View.OnTouchListener {
-
     //Custom values
     private boolean isShadowEnabled = true;
     private int mButtonColor;
     private int mShadowColor;
+    private int mDisableColor;
     private int mShadowHeight;
     private int mCornerRadius;
     //Native values
@@ -43,20 +44,20 @@ public class FButton extends Button implements View.OnTouchListener {
 
     public FButton(Context context) {
         super(context);
-        init(context);
+        init();
         this.setOnTouchListener(this);
     }
 
     public FButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init();
         parseAttrs(context, attrs);
         this.setOnTouchListener(this);
     }
 
     public FButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
+        init();
         parseAttrs(context, attrs);
         this.setOnTouchListener(this);
     }
@@ -94,15 +95,15 @@ public class FButton extends Button implements View.OnTouchListener {
         return false;
     }
 
-    private void init(Context context) {
+    private void init() {
         //Init default values
         isShadowEnabled = true;
         Resources resources = getResources();
         if (resources == null) return;
 //        mButtonColor = resources.getColor(R.color.fbutton_default_color);
-        mButtonColor = getResourceColorCompat(context, R.color.fbutton_default_color);
+        mButtonColor = getColor(R.color.fbutton_default_color);
 //        mShadowColor = resources.getColor(R.color.fbutton_default_shadow_color);
-        mShadowColor = getResourceColorCompat(context, R.color.fbutton_default_shadow_color);
+        mShadowColor = getColor(R.color.fbutton_default_shadow_color);
         mShadowHeight = resources.getDimensionPixelSize(R.dimen.fbutton_default_shadow_height);
         mCornerRadius = resources.getDimensionPixelSize(R.dimen.fbutton_default_conner_radius);
     }
@@ -116,14 +117,16 @@ public class FButton extends Button implements View.OnTouchListener {
             if (attr == R.styleable.FButton_shadowEnabled) {
                 isShadowEnabled = typedArray.getBoolean(attr, true); //Default is true
             } else if (attr == R.styleable.FButton_buttonColor) {
-                mButtonColor = typedArray.getColor(attr, getResourceColorCompat(context, R.color.fbutton_default_color));
+                mButtonColor = typedArray.getColor(attr, getColor(R.color.fbutton_default_color));
             } else if (attr == R.styleable.FButton_shadowColor) {
-                mShadowColor = typedArray.getColor(attr, getResourceColorCompat(context, R.color.fbutton_default_shadow_color));
+                mShadowColor = typedArray.getColor(attr, getColor(R.color.fbutton_default_shadow_color));
                 isShadowColorDefined = true;
+            } else if (attr == R.styleable.FButton_disableColor) {
+                mDisableColor = typedArray.getColor(attr, getColor(R.color.fbutton_default_disable_color));
             } else if (attr == R.styleable.FButton_shadowHeight) {
-                mShadowHeight = typedArray.getDimensionPixelSize(attr, R.dimen.fbutton_default_shadow_height);
+                mShadowHeight = typedArray.getDimensionPixelSize(attr, (int) getDimension(R.dimen.fbutton_default_shadow_height));
             } else if (attr == R.styleable.FButton_cornerRadius) {
-                mCornerRadius = typedArray.getDimensionPixelSize(attr, R.dimen.fbutton_default_conner_radius);
+                mCornerRadius = typedArray.getDimensionPixelSize(attr, (int) getDimension(R.dimen.fbutton_default_conner_radius));
             }
         }
         typedArray.recycle();
@@ -172,12 +175,14 @@ public class FButton extends Button implements View.OnTouchListener {
                 unpressedDrawable = createDrawable(mCornerRadius, mButtonColor, Color.TRANSPARENT);
             }
         } else {
-            Color.colorToHSV(mButtonColor, hsv);
-            hsv[1] *= 0.25f; // saturation component
-            int disabledColor = mShadowColor = Color.HSVToColor(alpha, hsv);
+            if (mDisableColor == Color.TRANSPARENT) {
+                Color.colorToHSV(mButtonColor, hsv);
+                hsv[1] *= 0.25f; // saturation component
+                mDisableColor = mShadowColor = Color.HSVToColor(alpha, hsv);
+            }
             // Disabled button does not have shadow
-            pressedDrawable = createDrawable(mCornerRadius, disabledColor, Color.TRANSPARENT);
-            unpressedDrawable = createDrawable(mCornerRadius, disabledColor, Color.TRANSPARENT);
+            pressedDrawable = createDrawable(mCornerRadius, mDisableColor, Color.TRANSPARENT);
+            unpressedDrawable = createDrawable(mCornerRadius, mDisableColor, Color.TRANSPARENT);
         }
         updateBackground(unpressedDrawable);
         //Set padding
@@ -192,7 +197,7 @@ public class FButton extends Button implements View.OnTouchListener {
 //        } else {
 //            this.setBackgroundDrawable(background);
 //        }
-        setBackgroundDrawableCompat(this, background);
+        setBackgroundCompat(background);
     }
 
     private LayerDrawable createDrawable(int radius, int topColor, int bottomColor) {
@@ -285,5 +290,54 @@ public class FButton extends Button implements View.OnTouchListener {
 
     public int getCornerRadius() {
         return mCornerRadius;
+    }
+
+    protected Drawable getDrawable(int id) {
+        return getResourceDrawableCompat(this, id);
+    }
+
+    protected float getDimension(int id) {
+        return getResources().getDimension(id);
+    }
+
+    protected int getColor(int id) {
+        return getResourceColorCompat(this, id);
+    }
+
+    protected TypedArray getTypedArray(Context context, AttributeSet attributeSet, int[] attr) {
+        return context.obtainStyledAttributes(attributeSet, attr, 0, 0);
+    }
+
+    public Drawable getNormalDrawable() {
+        return unpressedDrawable;
+    }
+
+    public CharSequence getNormalText() {
+        return getText();
+    }
+
+    public void setNormalText(CharSequence normalText) {
+        setText(normalText);
+    }
+
+    public Drawable getPressedDrawable() {
+        return pressedDrawable;
+    }
+
+    public Drawable getDefaultDrawable() {
+        return unpressedDrawable;
+    }
+
+    /**
+     * Set the View's background. Masks the API changes made in Jelly Bean.
+     */
+    public void setBackgroundCompat(Drawable drawable) {
+        int pL = getPaddingLeft();
+        int pT = getPaddingTop();
+        int pR = getPaddingRight();
+        int pB = getPaddingBottom();
+
+        setBackgroundDrawableCompat(this, drawable);
+        setPadding(pL, pT, pR, pB);
     }
 }

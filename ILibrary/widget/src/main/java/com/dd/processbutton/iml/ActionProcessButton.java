@@ -75,10 +75,10 @@ public class ActionProcessButton extends ProcessButton {
     private void init(Context context, AttributeSet attributeSet) {
         mMode = Mode.ENDLESS;
 
-        mColor1 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_blue_bright);
-        mColor2 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_green_light);
-        mColor3 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_orange_light);
-        mColor4 = OsCompat.getResourceColorCompat(context, R.color.process_button_holo_red_light);
+        mColor1 = getColor(R.color.process_button_holo_blue_bright);
+        mColor2 = getColor(R.color.process_button_holo_green_light);
+        mColor3 = getColor(R.color.process_button_holo_orange_light);
+        mColor4 = getColor(R.color.process_button_holo_red_light);
 
         initAttributes(context, attributeSet);
     }
@@ -90,24 +90,13 @@ public class ActionProcessButton extends ProcessButton {
         }
         try {
             mMode = attr.getInt(R.styleable.ActionProcessButton_apb_mode, 0) == 0 ? Mode.ENDLESS : Mode.PROGRESS;
-            mColor1 = attr.getColor(R.styleable.ActionProcessButton_apb_color1, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_blue_bright));
-            mColor2 = attr.getColor(R.styleable.ActionProcessButton_apb_color2, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_green_light));
-            mColor3 = attr.getColor(R.styleable.ActionProcessButton_apb_color3, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_orange_light));
-            mColor4 = attr.getColor(R.styleable.ActionProcessButton_apb_color4, OsCompat.getResourceColorCompat(context, R.color.process_button_holo_red_light));
+            mColor1 = attr.getColor(R.styleable.ActionProcessButton_apb_color1, getColor(R.color.process_button_holo_blue_bright));
+            mColor2 = attr.getColor(R.styleable.ActionProcessButton_apb_color2, getColor(R.color.process_button_holo_green_light));
+            mColor3 = attr.getColor(R.styleable.ActionProcessButton_apb_color3, getColor(R.color.process_button_holo_orange_light));
+            mColor4 = attr.getColor(R.styleable.ActionProcessButton_apb_color4, getColor(R.color.process_button_holo_red_light));
         } finally {
             attr.recycle();
         }
-    }
-
-    public void setMode(Mode mode) {
-        mMode = mode;
-    }
-
-    public void setColorScheme(int color1, int color2, int color3, int color4) {
-        mColor1 = color1;
-        mColor2 = color2;
-        mColor3 = color3;
-        mColor4 = color4;
     }
 
     @Override
@@ -162,6 +151,17 @@ public class ActionProcessButton extends ProcessButton {
         double indicatorHeight = getDimension(R.dimen.process_button_layer_padding);
         int bottom = (int) (getMeasuredHeight() - indicatorHeight);
         mProgressBar.setBounds(0, bottom, getMeasuredWidth(), getMeasuredHeight());
+    }
+
+    public void setMode(Mode mode) {
+        mMode = mode;
+    }
+
+    public void setColorScheme(int color1, int color2, int color3, int color4) {
+        mColor1 = color1;
+        mColor2 = color2;
+        mColor3 = color3;
+        mColor4 = color4;
     }
 
     public static class ProgressBar {

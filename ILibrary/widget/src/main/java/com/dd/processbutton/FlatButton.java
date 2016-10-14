@@ -1,20 +1,21 @@
 package com.dd.processbutton;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.Button;
 
 import org.zsago.widget.R;
 
-public class FlatButton extends Button {
+import static com.dd.processbutton.OsCompat.getResourceColorCompat;
+import static com.dd.processbutton.OsCompat.getResourceDrawableCompat;
+import static com.dd.processbutton.OsCompat.setBackgroundDrawableCompat;
 
+public class FlatButton extends Button {
     private StateListDrawable mNormalDrawable;
     private CharSequence mNormalText;
     private float cornerRadius;
@@ -48,39 +49,28 @@ public class FlatButton extends Button {
         if (attr == null) {
             return;
         }
-
         try {
-
             float defValue = getDimension(R.dimen.process_button_corner_radius);
             cornerRadius = attr.getDimension(R.styleable.FlatButton_pb_cornerRadius, defValue);
-
-            mNormalDrawable.addState(new int[]{android.R.attr.state_pressed},
-                    createPressedDrawable(attr));
-            mNormalDrawable.addState(new int[]{android.R.attr.state_focused},
-                    createPressedDrawable(attr));
-            mNormalDrawable.addState(new int[]{android.R.attr.state_selected},
-                    createPressedDrawable(attr));
+            mNormalDrawable.addState(new int[]{android.R.attr.state_pressed}, createPressedDrawable(attr));
+            mNormalDrawable.addState(new int[]{android.R.attr.state_focused}, createPressedDrawable(attr));
+            mNormalDrawable.addState(new int[]{android.R.attr.state_selected}, createPressedDrawable(attr));
             mNormalDrawable.addState(new int[]{}, createNormalDrawable(attr));
-
         } finally {
             attr.recycle();
         }
     }
 
     private LayerDrawable createNormalDrawable(TypedArray attr) {
-        LayerDrawable drawableNormal =
-                (LayerDrawable) getDrawable(R.drawable.process_button_rect_normal).mutate();
-
-        GradientDrawable drawableTop =
-                (GradientDrawable) drawableNormal.getDrawable(0).mutate();
+        LayerDrawable drawableNormal = (LayerDrawable) getDrawable(R.drawable.process_button_rect_normal).mutate();
+        GradientDrawable drawableTop = (GradientDrawable) drawableNormal.getDrawable(0).mutate();
         drawableTop.setCornerRadius(getCornerRadius());
 
         int blueDark = getColor(R.color.process_button_blue_pressed);
         int colorPressed = attr.getColor(R.styleable.FlatButton_pb_colorPressed, blueDark);
         drawableTop.setColor(colorPressed);
 
-        GradientDrawable drawableBottom =
-                (GradientDrawable) drawableNormal.getDrawable(1).mutate();
+        GradientDrawable drawableBottom = (GradientDrawable) drawableNormal.getDrawable(1).mutate();
         drawableBottom.setCornerRadius(getCornerRadius());
 
         int blueNormal = getColor(R.color.process_button_blue_normal);
@@ -90,8 +80,7 @@ public class FlatButton extends Button {
     }
 
     private Drawable createPressedDrawable(TypedArray attr) {
-        GradientDrawable drawablePressed =
-                (GradientDrawable) getDrawable(R.drawable.process_button_rect_pressed).mutate();
+        GradientDrawable drawablePressed = (GradientDrawable) getDrawable(R.drawable.process_button_rect_pressed).mutate();
         drawablePressed.setCornerRadius(getCornerRadius());
 
         int blueDark = getColor(R.color.process_button_blue_pressed);
@@ -102,7 +91,7 @@ public class FlatButton extends Button {
     }
 
     protected Drawable getDrawable(int id) {
-        return getResources().getDrawable(id);
+        return getResourceDrawableCompat(this, id);
     }
 
     protected float getDimension(int id) {
@@ -110,7 +99,7 @@ public class FlatButton extends Button {
     }
 
     protected int getColor(int id) {
-        return getResources().getColor(id);
+        return getResourceColorCompat(this, id);
     }
 
     protected TypedArray getTypedArray(Context context, AttributeSet attributeSet, int[] attr) {
@@ -135,22 +124,14 @@ public class FlatButton extends Button {
 
     /**
      * Set the View's background. Masks the API changes made in Jelly Bean.
-     *
-     * @param drawable
      */
-    @SuppressWarnings("deprecation")
-    @SuppressLint("NewApi")
     public void setBackgroundCompat(Drawable drawable) {
         int pL = getPaddingLeft();
         int pT = getPaddingTop();
         int pR = getPaddingRight();
         int pB = getPaddingBottom();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            setBackground(drawable);
-        } else {
-            setBackgroundDrawable(drawable);
-        }
+        setBackgroundDrawableCompat(this, drawable);
         setPadding(pL, pT, pR, pB);
     }
 }

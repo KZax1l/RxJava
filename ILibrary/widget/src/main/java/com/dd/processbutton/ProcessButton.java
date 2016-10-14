@@ -10,7 +10,9 @@ import android.util.AttributeSet;
 
 import org.zsago.widget.R;
 
-public abstract class ProcessButton extends FlatButton {
+import info.hoang8f.widget.FButton;
+
+public abstract class ProcessButton extends FButton {
 
     private int mProgress;
     private int mMaxProgress;

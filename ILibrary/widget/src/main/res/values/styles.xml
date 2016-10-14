@@ -9,6 +9,7 @@
         <attr name="apb_color3" format="color|reference" />
         <attr name="apb_color4" format="color|reference" />
     </declare-styleable>
+
     <declare-styleable name="ProcessButton">
         <attr name="pb_textProgress" format="string" />
         <attr name="pb_textComplete" format="string" />
@@ -22,5 +23,54 @@
         <attr name="pb_colorPressed" format="color" />
         <attr name="pb_colorNormal" format="color" />
         <attr name="pb_cornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressButton">
+        <attr name="cpb_selectorIdle" format="reference" />
+        <attr name="cpb_selectorComplete" format="reference" />
+        <attr name="cpb_selectorError" format="reference" />
+        <attr name="cpb_textComplete" format="string" />
+        <attr name="cpb_textIdle" format="string" />
+        <attr name="cpb_textError" format="string" />
+        <attr name="cpb_textProgress" format="string" />
+        <attr name="cpb_colorProgress" format="color" />
+        <attr name="cpb_colorIndicator" format="color" />
+        <attr name="cpb_colorIndicatorBackground" format="color" />
+        <attr name="cpb_iconError" format="reference" />
+        <attr name="cpb_iconComplete" format="reference" />
+        <attr name="cpb_cornerRadius" format="dimension" />
+        <attr name="cpb_paddingProgress" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressFButton">
+        <attr name="cpfb_idleColor" format="color|reference" />
+        <attr name="cpfb_completeColor" format="color|reference" />
+        <attr name="cpfb_errorColor" format="color|reference" />
+        <attr name="cpfb_textComplete" format="string" />
+        <attr name="cpfb_textIdle" format="string" />
+        <attr name="cpfb_textError" format="string" />
+        <attr name="cpfb_textProgress" format="string" />
+        <attr name="cpfb_colorProgress" format="color|reference" />
+        <attr name="cpfb_colorIndicator" format="color|reference" />
+        <attr name="cpfb_colorIndicatorBackground" format="color|reference" />
+        <attr name="cpfb_iconError" format="reference" />
+        <attr name="cpfb_iconComplete" format="reference" />
+        <attr name="cpfb_cornerRadius" format="dimension" />
+        <attr name="cpfb_paddingProgress" format="dimension" />
+        <!-- FButton -->
+        <attr name="cpfb_shadowEnabled" format="boolean" />
+        <attr name="cpfb_buttonColor" format="color|reference" />
+        <attr name="cpfb_shadowColor" format="color|reference" />
+        <attr name="cpfb_disableColor" format="color|reference" />
+        <attr name="cpfb_shadowHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="MaterialTextField">
+        <attr name="mtf_cardCollapsedHeight" format="dimension" />
+        <attr name="mtf_labelColor" format="color" />
+        <attr name="mtf_image" format="reference" />
+        <attr name="mtf_hasFocus" format="boolean" />
+        <attr name="mtf_animationDuration" format="integer" />
+        <attr name="mtf_openKeyboardOnFocus" format="boolean" />
     </declare-styleable>
 </resources>

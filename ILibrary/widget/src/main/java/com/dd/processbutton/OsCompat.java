@@ -1,6 +1,5 @@
 package com.dd.processbutton;
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
@@ -14,17 +13,17 @@ public class OsCompat {
         }
     }
 
-    public static int getResourceColorCompat(Context context, int resId) {
+    public static int getResourceColorCompat(View view, int resId) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return context.getResources().getColor(resId, null);
+            return view.getResources().getColor(resId, null);
         }
-        return context.getResources().getColor(resId);
+        return view.getResources().getColor(resId);
     }
 
-    public static Drawable getResourceDrawableCompat(Context context, int resId) {
+    public static Drawable getResourceDrawableCompat(View view, int resId) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            return context.getResources().getDrawable(resId, null);
+            return view.getResources().getDrawable(resId, null);
         }
-        return context.getResources().getDrawable(resId);
+        return view.getResources().getDrawable(resId);
     }
 }

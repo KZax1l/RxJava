@@ -35,8 +35,8 @@ public class SignInActivity extends Activity implements ProgressGenerator.OnComp
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                progressGenerator.start(btnSignIn);
-                btnSignIn.setProgress(50);
+//                btnSignIn.setProgress(50);
+                progressGenerator.start(btnSignIn);
                 btnSignIn.setEnabled(false);
                 editEmail.setEnabled(false);
                 editPassword.setEnabled(false);
@@ -46,7 +46,7 @@ public class SignInActivity extends Activity implements ProgressGenerator.OnComp
 
     @Override
     public void onComplete() {
-        Toast.makeText(this, R.string.Loading_Complete, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.sample_process_button_Loading_Complete, Toast.LENGTH_LONG).show();
     }
 
 }

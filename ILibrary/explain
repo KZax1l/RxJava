@@ -1,3 +1,5 @@
 sample或demo文件夹即使演示Demo的项目
 以sample_开头的文件就是演示Demo的文件
 当Android Library Module中R文件始终不存在时，这个时候要检查一下该工程是否作为app主工程的依赖
+Drawable中的getOpacity()用来返回这个Drawable是否透明，PixelFormat.UNKNOWN、PixelFormat.TRANSLUCENT(半透明)、PixelFormat.TRANSPARENT(透明)、PixelFormat.OPAQUE(不透明)
+@NonNull注解能被用来标注给定的参数或者返回值不能为null

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:inputType="textEmailAddress"
-            android:text="@string/dummy_email" />
+            android:text="@string/sample_process_button_dummy_email" />
 
         <EditText
             android:id="@+id/editPassword"
@@ -25,14 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:inputType="textPassword"
-            android:text="@string/dummy_password" />
+            android:text="@string/sample_process_button_dummy_password" />
 
         <com.dd.processbutton.iml.ActionProcessButton
             android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="16dp"
-            android:text="@string/Sign_in"
+            android:text="@string/sample_process_button_Sign_in"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             custom:apb_color1="@android:color/holo_red_light"
@@ -40,13 +40,14 @@
             custom:apb_color3="@android:color/holo_blue_light"
             custom:apb_color4="@android:color/holo_blue_dark"
             custom:apb_mode="endless"
-            custom:pb_colorComplete="@color/process_button_green_complete"
+            custom:disableColor="@color/fbutton_default_disable_color"
+            custom:pb_colorComplete="@color/fbutton_default_shadow_color"
             custom:pb_colorNormal="@color/process_button_holo_red_light"
             custom:pb_colorPressed="@color/process_button_red_error"
             custom:pb_colorProgress="@color/process_button_purple_progress"
             custom:pb_cornerRadius="20dp"
-            custom:pb_textComplete="@string/Success"
-            custom:pb_textProgress="@string/Loading" />
+            custom:pb_textComplete="@string/sample_process_button_Success"
+            custom:pb_textProgress="@string/sample_process_button_Loading" />
 
         <com.dd.processbutton.FlatButton
             android:layout_width="match_parent"
