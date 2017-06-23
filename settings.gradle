@@ -1,1 +1,1 @@
-include ':app', ':rxjava-1.3.0'
+include ':app', ':rxjava-1.3.0', ':rxjava-2.1.1'
